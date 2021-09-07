@@ -1,0 +1,34 @@
+name: Publish Docker image
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  push_to_registry:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      
+      - name: Log in to Docker Hub
+        uses: docker/login-action@25c0ca8bab9893f0962d4ffd043f2b7ab90e9a3f
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@6d43bfb301c5ed182a59cfa3b21916868c62c405
+        with:
+          images: appsmode/oso-docker-polyglot
+      
+      - name: Build and push Docker image
+        uses: docker/build-push-action@375f72aff65b645c51f122f04a776df8416b222b
+        with:
+          context: .
+          file: {context}/oso-docker-polyglot-base.dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
