@@ -10,6 +10,9 @@ This image is currently highly experimental and has only been tested with the Os
 ## Building the base Image (without Oso)
 `docker build -t appsmode/oso-docker-polyglot-base -f oso-docker-polyglot-base.dockerfile .`
 
+This image is also on Dockerhub, so you can reference or pull it
+`docker pull appsmode/oso-docker-polyglot-base`
+
 ## Building a derived image with Oso based on the main branch
 `docker build --no-cache -t appsmode/oso-docker-polyglot -f oso-docker-polyglot.dockerfile .`
 
