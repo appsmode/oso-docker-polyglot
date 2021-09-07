@@ -23,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@6d43bfb301c5ed182a59cfa3b21916868c62c405
         with:
-          images: appsmode/oso-docker-polyglot
+          images: appsmode/oso-docker-polyglot-base
       
       - name: Build and push Docker image
         uses: docker/build-push-action@375f72aff65b645c51f122f04a776df8416b222b
