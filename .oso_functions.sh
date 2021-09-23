@@ -28,7 +28,7 @@ oso_repl_build_js() {
         make build
         cd ${OSO_GIT_HOME}/languages/js
         make build
-        npm install -g .
+        yarn global add file:$PWD
     )
 }
 oso_repl_build_python() {

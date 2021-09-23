@@ -23,7 +23,7 @@ REPL_QUERY = """1+2=3
 REPLS: List[Repl] = [
     Repl(language="go", run_function=["oso"]),
     Repl(language="java", run_function=["make", "repl"]),
-    Repl(language="js", run_function=["/usr/bin/oso"]),
+    Repl(language="js", run_function=["/usr/local/bin/oso"]),
     Repl(language="python", run_function=["python", "-m", "oso"]),
     Repl(language="ruby", run_function=["bundle", "exec", "oso"]),
     Repl(language="rust", run_function=["cargo", "run", "--features=cli"]),
