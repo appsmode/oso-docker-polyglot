@@ -24,7 +24,8 @@ oso_repl_build_java() {
     )
 }
 oso_repl_build_js() {
-    (
+    (   cd ${OSO_GIT_HOME}/polar-wasm-api
+        make build
         cd ${OSO_GIT_HOME}/languages/js
         make build
         npm install -g .
